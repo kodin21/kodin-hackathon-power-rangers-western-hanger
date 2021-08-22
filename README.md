@@ -1,7 +1,7 @@
 # Wester Hanger
 ### Hangman Game built for Kodin Hackathon 2021
 ### Built with React, Firebase and ❤️ 
-
+### [Live Preview](https://kodin-western-hanger.netlify.app)
 ---
 
 <p align="center">
