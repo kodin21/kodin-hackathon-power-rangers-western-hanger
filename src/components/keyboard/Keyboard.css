@@ -1,7 +1,7 @@
 .keyboard {
   width: 300px;
   height: 200px;
-  background-image: url("assets/images/letters.png");
+  background-image: url('../../assets/images/letters.png');
   background-repeat: no-repeat;
   display: grid;
   grid-template-columns: repeat(7, 1fr);

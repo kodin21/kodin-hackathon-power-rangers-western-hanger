@@ -5,6 +5,6 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: url("assets/images/background.png");
+  background: url('../../assets/images/background.png');
   position: relative;
 }
