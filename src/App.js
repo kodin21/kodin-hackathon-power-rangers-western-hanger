@@ -1,20 +1,20 @@
-import React from "react";
-import "./styles.css";
-import Board from "./components/Board/Board";
+import React from 'react';
+import './styles.css';
+import Board from './components/Board/Board';
 import {
   startGame,
   resetGame,
   subscribeEmittedLetters,
-  subscribeSelectedWord
-} from "./service/firebase";
-import HiddenWord from "./components/hidden-word/HiddenWord";
-import Keyboard from "./components/keyboard/Keyboard";
-import HangMan from "./components/HangMan/HangMan";
+  subscribeSelectedWord,
+} from './service/firebase';
+import HiddenWord from './components/hidden-word/HiddenWord';
+import Keyboard from './components/keyboard/Keyboard';
+import HangMan from './components/HangMan/HangMan';
 
 export default function App() {
   const [gameWord, setGameWord] = React.useState(null);
   const [emittedLetters, setEmittedLetters] = React.useState([]);
-  const [stateOfMan, setStateOfMan] = React.useState("0");
+  const [stateOfMan, setStateOfMan] = React.useState('0');
 
   React.useEffect(() => {
     // Game starter
@@ -34,22 +34,22 @@ export default function App() {
       gameWord &&
       [...gameWord].every((letter) => emittedLetters.includes(letter));
     if (wrongAnswers === 7) {
-      setStateOfMan("7");
+      setStateOfMan('7');
 
       setTimeout(() => {
         resetGame(setGameWord);
-        setStateOfMan("0");
+        setStateOfMan('0');
       }, 5000);
     } else if (wrongAnswers < 7) {
       setStateOfMan(wrongAnswers);
     }
 
     if (foundEveryLetter) {
-      setStateOfMan("finish");
+      setStateOfMan('finish');
 
       setTimeout(() => {
         resetGame(setGameWord);
-        setStateOfMan("0");
+        setStateOfMan('0');
       }, 5000);
     }
   }, [emittedLetters, gameWord]);
@@ -62,6 +62,14 @@ export default function App() {
         <HiddenWord {...{ gameWord, emittedLetters }} />
         <Keyboard />
       </Board>
+      <span>
+        <a
+          target="_blank"
+          href="https://github.com/kodin21/kodin-hackathon-power-rangers-western-hanger"
+        >
+          Github-2021
+        </a>
+      </span>
     </div>
   );
 }
