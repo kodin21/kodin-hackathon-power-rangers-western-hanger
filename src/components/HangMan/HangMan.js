@@ -1,6 +1,6 @@
 import React from 'react';
 
-import hangmanImage from '../../assets/images/western.png';
+import './HangMan.css';
 
 const HangMan = ({ stateOfMan }) => {
   const stage = {
@@ -45,23 +45,14 @@ const HangMan = ({ stateOfMan }) => {
   return (
     <>
       <div
+        className="hangman"
         style={{
-          top: 0,
-          height: 128,
-          width: 128,
           backgroundPosition: `-${stage[stateOfMan].width}px -${stage[stateOfMan].height}px`,
-          backgroundImage: { hangmanImage },
         }}
       />
-      {stateOfMan === '7' && (
-        <span style={{ marginTop: '15px', color: 'red', fontSize: '18px' }}>
-          Game OVER!
-        </span>
-      )}
+      {stateOfMan === '7' && <span className="hangman__lose">Game OVER!</span>}
       {stateOfMan === 'finish' && (
-        <span style={{ marginTop: '15px', color: 'green', fontSize: '18px' }}>
-          You WIN!
-        </span>
+        <span className="hangman__win">You WIN!</span>
       )}
     </>
   );
